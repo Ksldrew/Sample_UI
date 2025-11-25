@@ -1,58 +1,48 @@
-# README – Van Gogh Detail Page (MAUI .NET 9)
+# Van Gogh Detail Page – .NET MAUI (.NET 9)
 
 ## 1. Overview
-This project is a mobile application UI built with **.NET MAUI (.NET 9)**.  
-It displays detailed information about Vincent van Gogh, including:
+This project implements a mobile UI page inspired by an art-gallery design for Vincent van Gogh.  
+It is built using **.NET MAUI (.NET 9)** and focuses on modern mobile UI layout, responsive grids, and animated expandable text.
 
-- Profile image  
-- Artist biography  
-- Expandable description  
-- Statistics section  
-- Gallery of artwork items  
+The page contains:
+- Profile portrait with circular gold border  
+- Artist name and biography  
+- Expandable description section  
+- Artwork statistics  
+- A gallery of other Van Gogh paintings  
+- Scrollable card-style layout  
 
-The design follows a modern card-style layout and is optimized for mobile display.
+The UI design closely follows the reference image provided in the assignment.
 
 ---
 
 ## 2. Technologies
-- .NET MAUI (.NET 9)
-- C#
-- XAML
-- CommunityToolkit.Maui (for Expander behavior)
-- Android Emulator / Windows Machine
+- **.NET MAUI (.NET 9)**
+- **XAML**
+- **C#**
+- **CommunityToolkit.Maui v12** (Expander)
+- Android Emulator / Physical Android Device
 
 ---
 
 ## 3. Key UI Components
 
-### Profile Section
-A round profile image with a golden-colored border floating above the main card.  
-Implemented using:
-
+### **Profile Image**
+A floating circular portrait positioned above the main card using:
 - `Border`
-- `Stroke`
-- `RoundRectangle`
-- `AspectFill` image
+- `StrokeThickness`
+- `RoundRectangle` shape
+- `AspectFill` image alignment
 
-### Expandable Description
-The biography uses **MAUI Toolkit Expander**:
+### **Expandable Description**
+The biography section uses **MAUI CommunityToolkit Expander**, which provides:
+- Collapsed: 2-line text with `TailTruncation` and **Read More**
+- Expanded: full text with **Read More removed**
+- Automatic show/hide using XAML `DataTrigger`
+- Center-aligned text for consistency with the sample UI
 
-- Collapsed: shows a **2-line truncated description** with `TailTruncation`
-- Expanded: displays **full text** without “Read More”
-- “Read More” disappears when expanded and reappears when collapsed
-- All implemented using XAML `DataTrigger`s
-- Text content is center-aligned
-
-### Statistics Section
-A four-column grid displaying:
-
-- Record  
-- Average  
-- Popularity (%)  
-- Number of items  
-
-Implemented using:
-
+### **Artwork Statistics Section**
+Displayed using a 4-column equal-width grid:
 ```xml
 <Grid ColumnDefinitions="*,*,*,*" />
 
